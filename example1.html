@@ -1,0 +1,41 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//RU">
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="shortcut icon" href="favicon.ico" type="image/ico">
+		<title>Neba-panorama. Simple panorama with title</title>
+		<link href="panorama.css" type="text/css" rel="stylesheet">
+		<link href="styles.css" type="text/css" rel="stylesheet">
+		<script type="text/javascript" src="jquery-3.1.1.min.js"></script>
+		<script type="text/javascript" src="jquery.mousewheel.min.js"></script>
+		<script type="text/javascript" src="panorama.min.js"></script>
+	</head>
+	<body>
+		<div class="content">
+			<div class="examples">
+				<a href="index.html">Return</a>
+			</div>
+			<div id="mall" class="pano"></div>
+			<div class="description">Here you can see the possibility of creating a simple panorama for an interactive display of a room, vehicle, street or some other image.</div>
+		</div>
+		<script>
+			var options = 
+			{
+				pano: 
+				{
+					shopping_mall: 
+					{
+						title_text: 'Shopping mall', // title caption
+						bgsrc: 'images/pano/mall.jpg', // image source
+						bgw: 3500, // width
+						bgh: 1096, // height
+						bgx: 2230, // start x-position
+						bgy: -460, // start y-position
+					}, 
+				}, 
+			};
+			$(document).ready(function () {panorama('#mall').render(options);});
+		</script>
+	</body>
+</html>

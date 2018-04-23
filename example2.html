@@ -1,0 +1,114 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//RU">
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="shortcut icon" href="favicon.ico" type="image/ico">
+		<title>Neba-panorama. Panorama with options</title>
+		<link href="panorama.css" type="text/css" rel="stylesheet">
+		<link href="styles.css" type="text/css" rel="stylesheet">
+		<script type="text/javascript" src="jquery-3.1.1.min.js"></script>
+		<script type="text/javascript" src="jquery.mousewheel.min.js"></script>
+		<script type="text/javascript" src="panorama.min.js"></script>
+	</head>
+	<body>
+		<div class="content">
+			<div class="examples">
+				<a href="index.html">Return</a>
+			</div>
+			<div class="panorama-relative-list">
+				<div class="panorama-absolute-1">
+					<div id="kremlin" class="pano" 
+						wonders="
+						{
+							'title_text':'Kremlin. Red square',
+							'bgsrc':'images/pano/kremlin.jpg',
+							'w':'3156',
+							'h':'3156',
+							'x':'660',
+							'y':'-1880',
+							'pultstep':'400'
+						}">
+					</div>
+				</div>
+				<div class="panorama-absolute-2">
+					<div id="eiffel" class="pano" 
+						wonders="
+						{
+							'title_text':'Eiffel tower. Twilight',
+							'bgsrc':'images/pano/eiffel.jpg',
+							'w':'1920',
+							'h':'1920',
+							'x':'1215',
+							'y':'-1030'
+						}">
+					</div>
+				</div>
+				<div class="panorama-absolute-3">
+					<div id="pyramids" class="pano" 
+						wonders="
+						{
+							'title_text':'Giza pyramids. Egypt',
+							'bgsrc':'images/pano/pyramids.jpg',
+							'w':'3500',
+							'h':'1010',
+							'x':'3420',
+							'y':'-280',
+							'sphearic':false,
+							'cylinder':false
+						}">
+					</div>
+				</div>
+			</div>
+			<div class="description">Here it is shown how it is possible to make several panoramas with different options on one page.</div>
+		</div>
+		<script>
+			var defaults = 
+			{
+				attr_name: 'wonders', // HTML attribute, that call options. By default is 'panorama'
+				sphearic: true, // All panorams there instead a "Giza pyramids" are spherical
+				nozoom: true, // Disable a zoom by default
+				pultstep: 200, // Panorama moving step by pult click
+			};
+			$(document).ready(function () 
+			{
+				// Eiffel tower panorama
+				var eiffel = panorama('#eiffel'); // select goal
+				eiffel.set(defaults); // set default parameters
+				eiffel.render({}); // create panorama
+				// Red square panorama
+				var kremlin = panorama('#kremlin');
+				kremlin.set(defaults);
+				kremlin.render({});
+				// Giza pyramids panorama
+				var pyramids = panorama('#pyramids');
+				pyramids.set(defaults);
+				pyramids.render({pano:{giza:{add_html:'<div class="tips">Non-cylindrical and non-spherical panorama</div>'}}});
+			});
+		</script>
+		<style>
+			.panorama-relative-list {
+				height: 1040px;
+				position: relative;
+			}
+			.panorama-absolute-1 {
+				position: absolute;
+				left: 0px;
+				top: 0px;
+				width: 490px;
+			}
+			.panorama-absolute-2 {
+				position: absolute;
+				left: 510px;
+				top: 0px;
+				width: 490px;
+			}
+			.panorama-absolute-3 {
+				position: absolute;
+				left: 0px;
+				top: 520px;
+				width: 1000px;
+			}
+		</style>
+	</body>
+</html>

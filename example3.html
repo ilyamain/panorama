@@ -1,0 +1,131 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//RU">
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="shortcut icon" href="favicon.ico" type="image/ico">
+		<title>Neba-panorama. Any linked panoramas</title>
+		<link href="panorama.css" type="text/css" rel="stylesheet">
+		<link href="styles.css" type="text/css" rel="stylesheet">
+		<script type="text/javascript" src="jquery-3.1.1.min.js"></script>
+		<script type="text/javascript" src="jquery.mousewheel.min.js"></script>
+		<script type="text/javascript" src="panorama.min.js"></script>
+	</head>
+	<body>
+		<div class="content">
+			<div class="examples">
+				<a href="index.html">Return</a>
+			</div>
+			<div id="pano" class="pano"></div>
+			<div class="description">It is shown the ability to create multiple linked panoramas. The panorama script allows you to configure necessary transfer options.</div>
+		</div>
+		<script>
+			var options = 
+			{
+				def: 'interior', // default panorama key. If not specified, default panorama - first panorama in 'pano' object
+				pano: 
+				{
+					napoli: 
+					{
+						nozoom: true, // Disable zoom on street panorama
+						pultstep: 300, 
+						title_text: 'Napoli panorama', 
+						bgsrc: 'images/pano/napoli.jpg', 
+						bgw: 2387, 
+						bgh: 712, 
+						bgx: -2100, 
+						bgy: -100, 
+						bgz: 1.5, // Start zoom
+						bgzmin: 0.8, // Minimal zoom
+						bgzmax: 2, // Maximal zoom
+						links: // Links on this panorama
+						[
+							{
+								content: 'Interior', // Link text
+								x: 1715, // Position x from zero
+								y: 320, // Position y from zero
+								center_x: 0, // Center link point (X). For example at arrow edge.
+								center_y: 36, // Center link point (Y). For example at arrow edge.
+								drag: true, // If true, link will move with panorama. If not, link will stay on place.
+								set: 'interior', // Set another panorama on click at this link
+							}, 
+							{
+								content: 'Harbor', 
+								class_name: 'pano-button', // Classname of link (for css). Default is 'pano-goto'.
+								x: 50, 
+								y: 50, 
+								drag: false, 
+								set: 'harbor', 
+							}, 
+						], 
+					}, 
+					interior: 
+					{
+						title_text: 'Home interior', 
+						add_html: '<div class="tips">Start panorama (it set by "def" option)</div>', // Set additional HTML inner
+						bgsrc: 'images/pano/interior.jpg', 
+						bgw: 2074, 
+						bgh: 578, 
+						bgx: 350, 
+						bgy: -50, 
+						bgz: 1.3, 
+						bgzmin: 0.9, 
+						links: 
+						[
+							{
+								content: 'Street', 
+								x: 200, 
+								y: 270, 
+								center_x: 24, 
+								center_y: 48, 
+								drag: true, 
+								set: 'napoli', 
+							}, 
+							{
+								content: 'Harbor', 
+								class_name: 'pano-button', 
+								x: 50, 
+								y: 50, 
+								drag: false, 
+								set: 'harbor', 
+							}, 
+						], 
+					}, 
+					harbor: 
+					{
+						title_text: 'Boat harbor', 
+						add_html: '<div class="tips">There are all links affixed</div>', 
+						bgsrc: 'images/pano/harbor.jpg', 
+						bgw: 2100, 
+						bgh: 768, 
+						bgx: -500, 
+						bgy: -330, 
+						bgz: 1.2, 
+						bgzmin: 0.7, 
+						links: 
+						[
+							{
+								content: 'Home', 
+								class_name: 'pano-button', 
+								x: 50, 
+								y: 50, 
+								drag: false, 
+								set: 'interior', 
+							}, 
+							{
+								content: 'Napoli', 
+								class_name: 'pano-button', 
+								x: 50, 
+								y: 110, 
+								drag: false, 
+								set: 'napoli', 
+							}, 
+						], 
+					}, 
+				}, 
+			};
+
+			$(document).ready(function () {panorama('#pano').render(options);});
+		</script>
+	</body>
+</html>

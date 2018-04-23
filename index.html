@@ -1,0 +1,99 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//RU">
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="shortcut icon" href="favicon.ico" type="image/ico">
+		<title>Neba-panorama. Mainpage</title>
+		<link href="panorama.css" type="text/css" rel="stylesheet">
+		<link href="styles.css" type="text/css" rel="stylesheet">
+		<script type="text/javascript" src="jquery-3.1.1.min.js"></script>
+		<script type="text/javascript" src="jquery.mousewheel.min.js"></script>
+		<script type="text/javascript" src="panorama.js"></script>
+	</head>
+	<body>
+		<div class="content">
+			<div class="description">The script is designed to create a panorama on your site that will not depend on any centralized services. Centralized services can be updated without warning, regardless of the losses that your site will incur.</div>
+			<div class="description">In addition, using your own program will allow you to increase the speed of the site and provide full control over what is happening on it.</div>
+			<div class="description">You can look at the pages (links below) that demonstrate some of the features of the panorama.</div>
+			<div class="examples">
+				<a class="example-item" href="example1.html">
+					<img src="images/link-1.jpg">
+					<span>Simple panorama with title</span>
+				</a>
+				<a class="example-item" href="example2.html">
+					<img src="images/link-2.jpg">
+					<span>Panorama with options</span>
+				</a>
+				<a class="example-item" href="example3.html">
+					<img src="images/link-3.jpg">
+					<span>Any linked panoramas</span>
+				</a>
+			</div>
+			<div class="description">Below is a list of parameters acceptable for the panorama:</div>
+			<div class="point options-description">
+				<div class="item"><b>options (object)</b>: <font>- object, included panorama options. <i>Default: empty object</i>.</font></div>
+				<div class="point">
+					<div class="item"><b>def (string)</b>: <font>- default panorama in next object ('pano') if there are any panoramas (<a href="example3.html">like here</a>). <i>Default: first sub-object in 'pano'</i>.</font></div>
+					<div class="item"><b>pano (object)</b>: <font>- list of panoramas. <i>Default: empty object</i>.</font></div>
+					<div class="point">
+						<div class="item"><b>"key": "panorama (object)"</b> <font>- list of panorama objects and keys (keys can be any that you understand). Each panorama can accept options below:</font></div>
+						<div class="point">
+							<div class="item"><b>nozoom (boolean)</b>: <font>- "true" disable zoom for this panorama (both zoom for pult and for mousewheel). <i>Default: false</i>.</font></div>
+							<div class="item"><b>sphearic (boolean)</b>: <font>- if your panorama is a sphearic by y-axis (<a href="example2.html">like Moscow and Paris here</a>), you can set "true" here. <i>Default: false</i>.</font></div>
+							<div class="item"><b>cylinder (boolean)</b>: <font>- if your panorama is not a cylinder by x-axis (<a href="example2.html">like Giza here</a>), you can set "false" here. <i>Default: true</i>.</font></div>
+							<div class="item"><b>add_html (string)</b>: <font>- if you want to attach any html string to panorama, you can do it here. <i>Default: empty string</i>.</font></div>
+							<div class="item"><b>pultarrows (boolean)</b>: <font>- "true" enable pult with arrows, that move panorama to left/top/right/bottom. <i>Default: true</i>.</font></div>
+							<div class="item"><b>pultzoom (boolean)</b>: <font>- "true" enable zoom buttons on pult. If pult is disabled or if zoom is disabled, this option doesn't matter. <i>Default: true</i>.</font></div>
+							<div class="item"><b>pultstep (integer)</b>: <font>- size of step in pixels for each pult click. <i>Default: 100px</i>.</font></div>
+							<div class="item"><b>shell_class (string)</b>: <font>- classname for shell "div". <i>Default: 'pano-images'</i>.</font></div>
+							<div class="item"><b>title_class (string)</b>: <font>- classname for panorama title. <i>Default: 'pano-title'</i>.</font></div>
+							<div class="item"><b>title_text (string)</b>: <font>- text for panorama title. <i>Default: 'Panorama'</i>.</font></div>
+							<div class="item"><b>bgclass (string)</b>: <font>- classname for panorama background. <i>Default: 'pano-img'</i>.</font></div>
+							<div class="item"><b>bgsrc (string)</b>: <font>- source for panorama background. <i>Default: '/example.jpg'</i>.</font></div>
+							<div class="item"><b>bgw (integer)</b>: <font>- width of panorama background in pixels for zoom = 1. <i>Default: 4000px</i>.</font></div>
+							<div class="item"><b>bgh (integer)</b>: <font>- height of panorama background in pixels for zoom = 1. <i>Default: 2000px</i>.</font></div>
+							<div class="item"><b>bgx (integer)</b>: <font>- start position of panorama background on x-axis. <i>Default: 0px</i>.</font></div>
+							<div class="item"><b>bgy (integer)</b>: <font>- start position of panorama background on y-axis. <i>Default: 0px</i>.</font></div>
+							<div class="item"><b>bgz (integer)</b>: <font>- start position of panorama zoom. <i>Default: 1</i>.</font></div>
+							<div class="item"><b>bgzmin (integer)</b>: <font>- minimal enabled zoom. <i>Default: 1</i>.</font></div>
+							<div class="item"><b>bgzmax (integer)</b>: <font>- maximal enabled zoom. <i>Default: 5</i>.</font></div>
+							<div class="item"><b>bgzstep (integer)</b>: <font>- size of zoom-step (both zoom for pult and for mousewheel). <i>Default: 0.1</i>.</font></div>
+							<div class="item"><b>links (array)</b>: <font>- list of links, that transfer visitor to another panorama. <i>Default: empty array</i>. Each link can accept options below:</font></div>
+							<div class="point">
+								<div class="item"><b>content (string)</b>: <font>- text caption of link. <i>Default: empty string</i>.</font></div>
+								<div class="item"><b>class_name (string)</b>: <font>- classname for this link. <i>Default: 'pano-goto'</i>.</font></div>
+								<div class="item"><b>x (integer)</b>: <font>- link position on x-axis. This value is scale with zoom. <i>Default: 0</i>.</font></div>
+								<div class="item"><b>y (integer)</b>: <font>- link position on y-axis. This value is scale with zoom. <i>Default: 0</i>.</font></div>
+								<div class="item"><b>center_x (integer)</b>: <font>- specify x-point for link. This value is not scale with zoom. <i>Default: 0</i>.</font></div>
+								<div class="item"><b>center_y (integer)</b>: <font>- specify y-point for link. This value is not scale with zoom. <i>Default: 0</i>.</font></div>
+								<div class="item"><b>drag (boolean)</b>: <font>- set "true" if you want link to be moved along with panorama. <i>Default: false</i>.</font></div>
+								<div class="item"><b>set (string)</b>: <font>- the panorama key to which the visitor will be transferred. <i>Default: current panorama key</i>.</font></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="description">Simple example:</div>
+			<div class="point code">
+				<div class="tab0 item"><span class="code-word">var</span> <span class="code-init">options</span> = </div>
+				<div class="tab0 item">{</div>
+					<div class="tab1 item"><span class="code-key">pano</span>: </div>
+					<div class="tab1 item">{</div>
+						<div class="tab2 item"><span class="code-key">shopping_mall</span>: </div>
+						<div class="tab2 item">{</div>
+							<div class="tab3 item"><span class="code-key">title_text</span>: <span class="code-val code-str">'Shopping mall'</span>, <span class="code-comment">// title caption</span></div>
+							<div class="tab3 item"><span class="code-key">bgsrc</span>: <span class="code-val code-str">'images/pano/mall.jpg'</span>, <span class="code-comment">// image source</span></div>
+							<div class="tab3 item"><span class="code-key">bgw</span>: <span class="code-val code-int">3500</span>, <span class="code-comment">// width</span></div>
+							<div class="tab3 item"><span class="code-key">bgh</span>: <span class="code-val code-int">1096</span>, <span class="code-comment">// height</span></div>
+							<div class="tab3 item"><span class="code-key">bgx</span>: <span class="code-val code-int">2230</span>, <span class="code-comment">// start x-position</span></div>
+							<div class="tab3 item"><span class="code-key">bgy</span>: <span class="code-val code-int">-460</span>, <span class="code-comment">// start y-position</span></div>
+						<div class="tab2 item">}, </div>
+					<div class="tab1 item">}, </div>
+				<div class="tab0 item">};</div>
+				<div class="tab0 item"><span class="code-func">$</span>(<span class="code-word">document</span>).<span class="code-vars">ready</span>(<span class="code-word">function</span> () {<span class="code-func">panorama</span>(<span class="code-val code-str">'#mall'</span>).<span class="code-vars">render</span>(<span class="code-vars">options</span>);});</div>
+			</div>
+			<div class="description">Have any questions? <a href="mailto:ilya.neba@gmail.com">ilya.neba@gmail.com</a></div>
+		</div>
+	</body>
+</html>
